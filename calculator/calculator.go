@@ -14,19 +14,19 @@ func CliCalculator() {
 	fmt.Print("Enter operator (+, - ,/, * ): ")
 	fmt.Scan(&operator)
 
-	fmt.Print("Enter first number: ")
+	fmt.Print("Enter second number: ")
 	fmt.Scan(&num2)
 
 	switch operator {
 	case "+":
-		fmt.Print("sum of these numbers is this: ", num1+num2)
+		fmt.Printf("sum of these numbers is this %f: ", num1+num2)
 	case "-":
-		fmt.Printf("subtraction is :", num1-num2)
+		fmt.Printf("subtraction is %f :", num1-num2)
 	case "*":
-		fmt.Printf("multiplication is: ", num1*num2)
+		fmt.Printf("multiplication is: %f", num1*num2)
 	case "/":
 		if num2 != 0 {
-			fmt.Printf("divide is: ", num1/num2)
+			fmt.Printf("divide is: %f", num1/num2)
 		} else {
 			fmt.Printf("wrong input lil bro")
 		}
