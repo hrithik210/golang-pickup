@@ -39,9 +39,36 @@ func PostGreet(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+type User struct {
+	Name  string `json:"name"`
+	Email string `json:"email"`
+}
+
+func jsonHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		var user User
+
+		err := json.NewDecoder(r.Body).Decode(&user)
+
+		if err != nil {
+			http.Error(w, "invalid json", http.StatusBadRequest)
+		}
+
+		response := map[string]string{
+			"message": fmt.Sprintf("hi this is a  response %s i know ur mail is %s", user.Name, user.Email),
+		}
+
+		w.Header().Set("content-type", "application/json")
+		json.NewEncoder(w).Encode(response)
+	} else {
+		http.Error(w, "invalid req", http.StatusMethodNotAllowed)
+	}
+}
+
 func main() {
 	http.HandleFunc("/greet", HelloHandler)
 	http.HandleFunc("/api/postgreet", PostGreet)
+	http.HandleFunc("/user", jsonHandler)
 	fmt.Println("server is running on port 3000")
 	// Handle error properly
 	err := http.ListenAndServe(":3000", nil)
