@@ -35,3 +35,11 @@ func CliCalculator() {
 	}
 
 }
+
+func Calculate(num1 int, num2 int) (int, int, int, int) {
+	var sum int = num1 + num2
+	var sub int = num1 - num2
+	var mul int = num1 * num2
+	var div int = num1 / num2
+	return sum, sub, mul, div
+}
