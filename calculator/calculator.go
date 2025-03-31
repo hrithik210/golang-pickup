@@ -5,7 +5,7 @@ import (
 )
 
 func CliCalculator() {
-	var num1, num2 float64
+	var num1, num2 int
 	var operator string
 
 	fmt.Print("Enter first number: ")
@@ -19,14 +19,14 @@ func CliCalculator() {
 
 	switch operator {
 	case "+":
-		fmt.Printf("sum of these numbers is this %f: ", num1+num2)
+		fmt.Printf("sum of these numbers is this %d: ", num1+num2)
 	case "-":
-		fmt.Printf("subtraction is %f :", num1-num2)
+		fmt.Printf("subtraction is %d :", num1-num2)
 	case "*":
-		fmt.Printf("multiplication is: %f", num1*num2)
+		fmt.Printf("multiplication is: %d", num1*num2)
 	case "/":
 		if num2 != 0 {
-			fmt.Printf("divide is: %f", num1/num2)
+			fmt.Printf("divide is: %d", num1/num2)
 		} else {
 			fmt.Printf("wrong input lil bro")
 		}
